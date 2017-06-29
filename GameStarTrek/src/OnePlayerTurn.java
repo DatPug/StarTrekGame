@@ -5,11 +5,11 @@ import java.io.IOException;
 public class OnePlayerTurn {
 
 
-	public static void onePlayerTurn() throws IOException {
+	public static void onePlayerTurn() throws IOException, InterruptedException {
 
 		Object ff = ChooseShips.x; // calls x from ChooseShips and sets to ff
 		Object kf = Ai.y; // calls y from ChooseShips and sets to kf
-		boolean gameEnded = true;
+		boolean gameEnded = false;
 		
 		while (!gameEnded) {
 

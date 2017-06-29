@@ -30,7 +30,7 @@ public class TwoPlayerTurn {
 				}
 			}
 
-			if (counter % 2 == 1) {
+			else {
 				((FederationFleet) ff).choose(ff, kf);
 
 				if (((KlingonFleet) kf).getHullStrengthA() <= 0) {

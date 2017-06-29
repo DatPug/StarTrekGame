@@ -66,6 +66,11 @@ public enum KlingonFleet {
 	public void attackMenu(Object ff, Object kf) {
 		// TODO Auto-generated method stub
 		System.out.println("+++++++++++++++++++++++++++++++++++");
+		if(ChooseShips.ai == false) {
+		System.out.println("Player 2's Turn:");
+		} else {
+			System.out.println("Computer's Turn:");
+		}
 		System.out.println("The KDF " + ChooseShips.kName + ": \n");
 		System.out.println("Shields are at: " + ((KlingonFleet) kf).getShieldStrength() + "%");
 		System.out.println("Hull is at: " + ((KlingonFleet) kf).getHullStrengthA() + "%\n");

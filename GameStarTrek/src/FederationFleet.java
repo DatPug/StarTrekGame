@@ -65,6 +65,7 @@ public enum FederationFleet {
 
 	public void attackMenu(Object ff, Object kf) {
 		System.out.println("+++++++++++++++++++++++++++++++++++");
+		System.out.println("Player 1's Turn:");
 		System.out.println("The USS " + ChooseShips.fName + ": \n");
 		System.out.println("Sheilds are at: " + ((FederationFleet) ff).getShieldStrength() + "%");
 		System.out.println("Hull is at: " + ((FederationFleet) ff).getHullStrengthA() + "%\n");

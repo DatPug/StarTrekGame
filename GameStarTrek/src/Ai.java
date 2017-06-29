@@ -1,6 +1,7 @@
 
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class Ai {
 
@@ -11,6 +12,7 @@ public class Ai {
 
 		Random x = new Random();
 		int choice = 1 + x.nextInt(3);
+		
 
 		if (choice == 1) {
 			y = KlingonFleet.b;
@@ -40,10 +42,13 @@ public class Ai {
 		}
 	}
 
-	public static void aiChoose(Object ff, Object kf) {
+	public static void aiChoose(Object ff, Object kf) throws InterruptedException {
 		Random x = new Random();
 		int choice = 1 + x.nextInt(4);
 
+		System.out.println("Computer is making a choice . . . ");
+		TimeUnit.SECONDS.sleep(2);
+		
 		if (choice == 1) {
 			((KlingonFleet) kf).attack1(ff, kf);
 		} else if (choice == 2) {
