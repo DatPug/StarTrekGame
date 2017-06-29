@@ -45,9 +45,6 @@ public class Ai {
 	public static void aiChoose(Object ff, Object kf) throws InterruptedException {
 		Random x = new Random();
 		int choice = 1 + x.nextInt(4);
-
-		System.out.println("Computer is making a choice...");
-		TimeUnit.SECONDS.sleep(2);
 		
 		if (choice == 1) {
 			((KlingonFleet) kf).attack1(ff, kf);
