@@ -1,0 +1,5 @@
+Install JDK\JRE for your system
+
+Be sure to run it via command prompt via
+
+dir java -jar SpaceBattle.jar 
