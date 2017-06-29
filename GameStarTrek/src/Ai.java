@@ -1,7 +1,7 @@
 
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
+
 
 public class Ai {
 
@@ -42,7 +42,7 @@ public class Ai {
 		}
 	}
 
-	public static void aiChoose(Object ff, Object kf) throws InterruptedException {
+	public static void aiChoose(Object ff, Object kf) {
 		Random x = new Random();
 		int choice = 1 + x.nextInt(4);
 		
