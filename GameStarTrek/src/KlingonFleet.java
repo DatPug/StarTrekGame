@@ -1,13 +1,12 @@
 
-
 import java.io.IOException;
 import java.util.Random;
 
 public enum KlingonFleet {
-	
+
 	a("The KDF " + ChooseShips.kName, 100, 100, 2, 2, 2), b("The KDF " + ChooseShips.kName, 50, 100, 3, 1,
 			1), c("The KDF " + ChooseShips.kName, 150, 100, 3, 2, 2);
-	
+
 	private int shieldStrength; // Shields
 	private int hullStrengthA; // hull
 	private int tNum; // torpedo ammo
@@ -64,10 +63,9 @@ public enum KlingonFleet {
 	}
 
 	public void attackMenu(Object ff, Object kf) {
-		// TODO Auto-generated method stub
 		System.out.println("+++++++++++++++++++++++++++++++++++");
-		if(ChooseShips.ai == false) {
-		System.out.println("Player 2's Turn:");
+		if (ChooseShips.ai == false) {
+			System.out.println("Player 2's Turn:");
 		} else {
 			System.out.println("Computer's Turn:");
 		}
@@ -99,7 +97,7 @@ public enum KlingonFleet {
 	}
 
 	public void attack1(Object ff, Object kf) {
-		// TODO Auto-generated method stub
+		// Disruptor Method
 		Random damage = new Random();
 		int disruptor = 0;
 		if (a == kf) {
@@ -129,7 +127,7 @@ public enum KlingonFleet {
 	}
 
 	public void attack2(Object ff, Object kf) {
-		// TODO Auto-generated method stub
+		// Torpedo Method
 		Random damage = new Random();
 		int torpedo = 0;
 		if (a == kf) {
@@ -164,7 +162,7 @@ public enum KlingonFleet {
 	}
 
 	public void defence1(Object ff, Object kf) {
-		// TODO Auto-generated method stub
+		// Shield Repair
 		Random repair = new Random();
 		int shield = 30 + repair.nextInt(10);
 		if (getrNum() >= 1) {
@@ -193,8 +191,8 @@ public enum KlingonFleet {
 
 	}
 
-	public void defence2(Object ff, Object kf) {
-		// TODO Auto-generated method stub
+	public void defence2(Object ff, Object kf) { 
+		// Hull Repair Method
 		Random repair = new Random();
 		int hull = 0;
 		int h = ((FederationFleet) ff).getHullStrengthA();
@@ -217,27 +215,43 @@ public enum KlingonFleet {
 				((KlingonFleet) kf).setHullStrengthA(((KlingonFleet) kf).getHullStrengthA() + hull);
 				((KlingonFleet) kf).sethNum(((KlingonFleet) kf).gethNum() - 1);
 
-				if ((h + hull) >= 100) {
-					y = (h + hull) - ((KlingonFleet) kf).getHullStrengthA();
-					x = y / 2;
-					((KlingonFleet) kf).setShieldStrength(((KlingonFleet) kf).getShieldStrength() + x);
-					System.out.println("Excess repairs went to Shields");
-					System.out.println("Shields repaired by: " + x + "%\n");
-				}
-				
 				if (a == kf) {
 					if (((KlingonFleet) kf).getHullStrengthA() >= 100) {
 						((KlingonFleet) kf).setHullStrengthA(100);
+						if ((h + hull) >= 100) {
+							y = (h + hull) - ((KlingonFleet) kf).getHullStrengthA();
+							x = y / 2;
+							((KlingonFleet) kf).setShieldStrength(((KlingonFleet) kf).getShieldStrength() + x);
+							System.out.println("Excess repairs went to Shields");
+							System.out.println("Shields repaired by: " + x + "%\n");
+							// dissipate leftover to shields
+						}
 					}
 				}
 				if (b == kf) {
 					if (((KlingonFleet) kf).getHullStrengthA() >= 100) {
 						((KlingonFleet) kf).setHullStrengthA(100);
+						if ((h + hull) >= 100) {
+							y = (h + hull) - ((KlingonFleet) kf).getHullStrengthA();
+							x = y / 2;
+							((KlingonFleet) kf).setShieldStrength(((KlingonFleet) kf).getShieldStrength() + x);
+							System.out.println("Excess repairs went to Shields");
+							System.out.println("Shields repaired by: " + x + "%\n");
+							// dissipate leftover to shields
+						}
 					}
 				}
 				if (c == kf) {
 					if (((KlingonFleet) kf).getHullStrengthA() >= 100) {
 						((KlingonFleet) kf).setHullStrengthA(100);
+						if ((h + hull) >= 100) {
+							y = (h + hull) - ((KlingonFleet) kf).getHullStrengthA();
+							x = y / 2;
+							((KlingonFleet) kf).setShieldStrength(((KlingonFleet) kf).getShieldStrength() + x);
+							System.out.println("Excess repairs went to Shields");
+							System.out.println("Shields repaired by: " + x + "%\n");
+							// dissipate leftover to shields
+						}
 					}
 				}
 				System.out.println("Hull is at " + ((KlingonFleet) kf).getHullStrengthA() + "%\n");
@@ -248,6 +262,7 @@ public enum KlingonFleet {
 	}
 
 	public void choose(Object ff, Object kf) throws IOException {
+		// Menu and turn choices
 		char choice, ignore;
 		boolean proceed = false;
 

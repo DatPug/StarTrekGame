@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 import java.util.Random;
 
@@ -94,7 +93,7 @@ public enum FederationFleet {
 	}
 
 	public void attack1(Object ff, Object kf) {
-		// TODO Auto-generated method stub
+		// Phaser method
 		Random damage = new Random();
 		int phaser = 0;
 		if (a == ff) {
@@ -125,7 +124,7 @@ public enum FederationFleet {
 	}
 
 	public void attack2(Object ff, Object kf) {
-		// TODO Auto-generated method stub
+		// Torpedo method
 		Random damage = new Random();
 		int torpedo = 0;
 		if (a == ff) {
@@ -160,7 +159,7 @@ public enum FederationFleet {
 	}
 
 	public void defence1(Object ff, Object kf) {
-		// TODO Auto-generated method stub
+		// Shield Repair Method
 		Random repair = new Random();
 		int shield = 30 + repair.nextInt(10);
 		if (((FederationFleet) ff).getrNum() >= 1) {
@@ -190,7 +189,7 @@ public enum FederationFleet {
 	}
 
 	public void defence2(Object ff, Object kf) {
-		// TODO Auto-generated method stub
+		// Hull Repair Method
 		Random repair = new Random();
 		int hull = 0;
 		int h = ((FederationFleet) ff).getHullStrengthA();
@@ -212,39 +211,57 @@ public enum FederationFleet {
 
 				((FederationFleet) ff).setHullStrengthA(((FederationFleet) ff).getHullStrengthA() + hull);
 				((FederationFleet) ff).sethNum(((FederationFleet) ff).gethNum() - 1);
-				if ((h + hull) >= 100) {
-					y = (h + hull) - ((FederationFleet) ff).getHullStrengthA();
-					x = y / 2;
-					((FederationFleet) ff).setShieldStrength(((FederationFleet) ff).getShieldStrength() + x);
-					System.out.println("Excess repairs went to Shields");
-					System.out.println("Shields repaired by: " + x + "%\n");
-				}
 
 				if (a == ff) {
 					if (((FederationFleet) ff).getHullStrengthA() >= 100) {
 						((FederationFleet) ff).setHullStrengthA(100);
+
+						if ((h + hull) >= 100) {
+							y = (h + hull) - ((FederationFleet) ff).getHullStrengthA();
+							x = y / 2;
+							((FederationFleet) ff).setShieldStrength(((FederationFleet) ff).getShieldStrength() + x);
+							System.out.println("Excess repairs went to Shields");
+							System.out.println("Shields repaired by: " + x + "%\n");
+							// dissipate leftover to shields
+						}
 					}
 				}
 				if (b == ff) {
 					if (((FederationFleet) ff).getHullStrengthA() >= 100) {
 						((FederationFleet) ff).setHullStrengthA(100);
+						if ((h + hull) >= 100) {
+							y = (h + hull) - ((FederationFleet) ff).getHullStrengthA();
+							x = y / 2;
+							((FederationFleet) ff).setShieldStrength(((FederationFleet) ff).getShieldStrength() + x);
+							System.out.println("Excess repairs went to Shields");
+							System.out.println("Shields repaired by: " + x + "%\n");
+							// dissipate leftover to shields
+						}
 					}
 				}
 				if (c == ff) {
 					if (((FederationFleet) ff).getHullStrengthA() >= 100) {
 						((FederationFleet) ff).setHullStrengthA(100);
-					} 
+						if ((h + hull) >= 100) {
+							y = (h + hull) - ((FederationFleet) ff).getHullStrengthA();
+							x = y / 2;
+							((FederationFleet) ff).setShieldStrength(((FederationFleet) ff).getShieldStrength() + x);
+							System.out.println("Excess repairs went to Shields");
+							System.out.println("Shields repaired by: " + x + "%\n");
+							// dissipate leftover to shields
+						}
+					}
 				}
 				System.out.println("Hull is at " + ((FederationFleet) ff).getHullStrengthA() + "%\n");
 			}
-
 		} else if (((FederationFleet) ff).gethNum() <= 0) {
 			((FederationFleet) ff).sethNum(0);
 		}
+
 	}
 
 	public void choose(Object ff, Object kf) throws IOException {
-		// TODO Auto-generated method stub
+		// Menu and turn choices
 		char choice, ignore;
 		boolean proceed = false;
 
