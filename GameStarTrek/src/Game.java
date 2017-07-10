@@ -1,17 +1,15 @@
 
-
-
 import java.io.IOException;
 
 public class Game {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
-		ChooseShips.chooseShips();
+		ChooseShips.chooseShips(); 
 		if (ChooseShips.ai == false) {
 			TwoPlayerTurn.twoPlayerTurn();
 		} else if (ChooseShips.ai == true) {
-			OnePlayerTurn.onePlayerTurn();
+			OnePlayerTurn.onePlayerTurn(args, args);
 		}
 
 	}

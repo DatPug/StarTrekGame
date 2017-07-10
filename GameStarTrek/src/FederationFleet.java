@@ -189,7 +189,7 @@ public enum FederationFleet {
 	}
 
 	public void defence2(Object ff, Object kf) {
-		// Hull Repair Method
+		// Hull Repair Method 
 		Random repair = new Random();
 		int hull = 0;
 		int h = ((FederationFleet) ff).getHullStrengthA();
@@ -211,30 +211,28 @@ public enum FederationFleet {
 
 				((FederationFleet) ff).setHullStrengthA(((FederationFleet) ff).getHullStrengthA() + hull);
 				((FederationFleet) ff).sethNum(((FederationFleet) ff).gethNum() - 1);
-				
 
 				if (a == ff) {
 					if (((FederationFleet) ff).getHullStrengthA() >= 100) {
 						((FederationFleet) ff).setHullStrengthA(100);
 
-						
 					}
 				}
 				if (b == ff) {
 					if (((FederationFleet) ff).getHullStrengthA() >= 100) {
 						((FederationFleet) ff).setHullStrengthA(100);
-						
+
 					}
 				}
 				if (c == ff) {
 					if (((FederationFleet) ff).getHullStrengthA() >= 100) {
 						((FederationFleet) ff).setHullStrengthA(100);
-						
-						}
+
 					}
-				
+				}
+
 				System.out.println("Hull is at " + ((FederationFleet) ff).getHullStrengthA() + "%\n");
-				
+
 				if ((h + hull) >= 100) {
 					y = (h + hull) - ((FederationFleet) ff).getHullStrengthA();
 					x = y / 2;

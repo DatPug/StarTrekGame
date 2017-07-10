@@ -191,7 +191,7 @@ public enum KlingonFleet {
 
 	}
 
-	public void defence2(Object ff, Object kf) { 
+	public void defence2(Object ff, Object kf) {
 		// Hull Repair Method
 		Random repair = new Random();
 		int hull = 0;
@@ -216,27 +216,27 @@ public enum KlingonFleet {
 				((KlingonFleet) kf).sethNum(((KlingonFleet) kf).gethNum() - 1);
 
 				if (a == kf) {
-					
+
 					if (((KlingonFleet) kf).getHullStrengthA() >= 100) {
 						((KlingonFleet) kf).setHullStrengthA(100);
-						
+
 					}
 				}
 				if (b == kf) {
-					
+
 					if (((KlingonFleet) kf).getHullStrengthA() >= 100) {
 						((KlingonFleet) kf).setHullStrengthA(100);
-						
+
 					}
 				}
 				if (c == kf) {
 					if (((KlingonFleet) kf).getHullStrengthA() >= 100) {
 						((KlingonFleet) kf).setHullStrengthA(100);
-						
+
 					}
 				}
 				System.out.println("Hull is at " + ((KlingonFleet) kf).getHullStrengthA() + "%\n");
-				
+
 				if ((h + hull) >= 100) {
 					y = (h + hull) - ((KlingonFleet) kf).getHullStrengthA();
 					x = y / 2;
@@ -256,7 +256,7 @@ public enum KlingonFleet {
 		char choice, ignore;
 		boolean proceed = false;
 
-		do {
+		do { 
 			proceed = false;
 
 			attackMenu(ff, kf);

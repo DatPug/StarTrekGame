@@ -1,32 +1,61 @@
 
-
 import java.io.IOException;
 
 public class OnePlayerTurn {
 
+	public static void onePlayerTurn(Object ff, Object kf) throws IOException, InterruptedException {
 
-	public static void onePlayerTurn() throws IOException, InterruptedException {
+		if (ChooseShips.fed == true) {
+			ff = ChooseShips.x; // calls x from ChooseShips and sets to ff
+			kf = Ai.kling; // calls y from ChooseShips and sets to kf
+		}
 
-		Object ff = ChooseShips.x; // calls x from ChooseShips and sets to ff
-		Object kf = Ai.y; // calls y from ChooseShips and sets to kf
+		if (ChooseShips.kling == true) {
+			ff = Ai.fed;
+			kf = ChooseShips.y;
+		}
+
 		boolean gameEnded = false;
-		
-		while (!gameEnded) {
 
-			((FederationFleet) ff).choose(ff, kf);
+		if (ChooseShips.fed == true) {
+			while (!gameEnded) {
 
-			if (((KlingonFleet) kf).getHullStrengthA() <= 0) {
-				System.out.println("The USS " + ChooseShips.fName + " was victorious!");
-				break;
-				// if the Klingon ship goes to 0 hull, break out of loop
+				((FederationFleet) ff).choose(ff, kf);
+
+				if (((KlingonFleet) kf).getHullStrengthA() <= 0) {
+					System.out.println("The USS " + ChooseShips.fName + " was victorious!");
+					break;
+					// if the Klingon ship goes to 0 hull, break out of loop
+				}
+
+				((KlingonFleet) kf).attackMenu(ff, kf);
+				Ai.aiChoiceKling(ff, kf);
+
+				if (((FederationFleet) ff).getHullStrengthA() <= 0) {
+					System.out.println("The KDF " + ChooseShips.kName + " was victorious!");
+					break;
+				}
 			}
+		}
 
-			((KlingonFleet) kf).attackMenu(ff, kf);
-			Ai.aiChoice(ff, kf);
+		if (ChooseShips.kling == true) {
+			while (!gameEnded) {
 
-			if (((FederationFleet) ff).getHullStrengthA() <= 0) {
-				System.out.println("The KDF " + ChooseShips.kName + " was victorious!");
-				break;
+				((KlingonFleet) kf).choose(ff, kf);
+
+				if (((FederationFleet) ff).getHullStrengthA() <= 0) {
+					System.out.println("The KDF " + ChooseShips.kName + " was victorious!");
+					break;
+					// if the Klingon ship goes to 0 hull, break out of loop
+				}
+
+				((FederationFleet) ff).attackMenu(ff, kf);
+				Ai.aiChoiceFed(ff, kf);
+
+				if (((KlingonFleet) kf).getHullStrengthA() <= 0) {
+					System.out.println("The KDF " + ChooseShips.kName + " was victorious!");
+					break;
+				}
 			}
 		}
 	}

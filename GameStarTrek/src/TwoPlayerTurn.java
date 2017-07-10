@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 
 public class TwoPlayerTurn {
@@ -11,7 +10,7 @@ public class TwoPlayerTurn {
 		boolean gameEnded = false;
 		int counter = (int) Math.random() * 2;
 
-		while (!gameEnded) {
+		while (!gameEnded) { 
 			if (counter % 2 == 0) {
 				((KlingonFleet) kf).choose(ff, kf);
 
