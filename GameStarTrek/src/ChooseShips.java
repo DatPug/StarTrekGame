@@ -174,6 +174,7 @@ public class ChooseShips {
 				// stores selection in x
 
 				break;
+				
 
 			case '2':
 				kling = true;
@@ -211,6 +212,8 @@ public class ChooseShips {
 
 				break;
 			}
+			
+			break;
 
 		case '2':
 
