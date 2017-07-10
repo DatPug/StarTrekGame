@@ -211,53 +211,42 @@ public enum FederationFleet {
 
 				((FederationFleet) ff).setHullStrengthA(((FederationFleet) ff).getHullStrengthA() + hull);
 				((FederationFleet) ff).sethNum(((FederationFleet) ff).gethNum() - 1);
+				
 
 				if (a == ff) {
 					if (((FederationFleet) ff).getHullStrengthA() >= 100) {
 						((FederationFleet) ff).setHullStrengthA(100);
 
-						if ((h + hull) >= 100) {
-							y = (h + hull) - ((FederationFleet) ff).getHullStrengthA();
-							x = y / 2;
-							((FederationFleet) ff).setShieldStrength(((FederationFleet) ff).getShieldStrength() + x);
-							System.out.println("Excess repairs went to Shields");
-							System.out.println("Shields repaired by: " + x + "%\n");
-							// dissipate leftover to shields
-						}
+						
 					}
 				}
 				if (b == ff) {
 					if (((FederationFleet) ff).getHullStrengthA() >= 100) {
 						((FederationFleet) ff).setHullStrengthA(100);
-						if ((h + hull) >= 100) {
-							y = (h + hull) - ((FederationFleet) ff).getHullStrengthA();
-							x = y / 2;
-							((FederationFleet) ff).setShieldStrength(((FederationFleet) ff).getShieldStrength() + x);
-							System.out.println("Excess repairs went to Shields");
-							System.out.println("Shields repaired by: " + x + "%\n");
-							// dissipate leftover to shields
-						}
+						
 					}
 				}
 				if (c == ff) {
 					if (((FederationFleet) ff).getHullStrengthA() >= 100) {
 						((FederationFleet) ff).setHullStrengthA(100);
-						if ((h + hull) >= 100) {
-							y = (h + hull) - ((FederationFleet) ff).getHullStrengthA();
-							x = y / 2;
-							((FederationFleet) ff).setShieldStrength(((FederationFleet) ff).getShieldStrength() + x);
-							System.out.println("Excess repairs went to Shields");
-							System.out.println("Shields repaired by: " + x + "%\n");
-							// dissipate leftover to shields
+						
 						}
 					}
-				}
+				
 				System.out.println("Hull is at " + ((FederationFleet) ff).getHullStrengthA() + "%\n");
+				
+				if ((h + hull) >= 100) {
+					y = (h + hull) - ((FederationFleet) ff).getHullStrengthA();
+					x = y / 2;
+					((FederationFleet) ff).setShieldStrength(((FederationFleet) ff).getShieldStrength() + x);
+					System.out.println("Excess repairs went to Shields");
+					System.out.println("Shields repaired by: " + x + "%\n");
+					// dissipate leftover to shields
+				}
 			}
 		} else if (((FederationFleet) ff).gethNum() <= 0) {
 			((FederationFleet) ff).sethNum(0);
 		}
-
 	}
 
 	public void choose(Object ff, Object kf) throws IOException {

@@ -22,7 +22,7 @@ public class OnePlayerTurn {
 			}
 
 			((KlingonFleet) kf).attackMenu(ff, kf);
-			Ai.aiChoose(ff, kf);
+			Ai.aiChoice(ff, kf);
 
 			if (((FederationFleet) ff).getHullStrengthA() <= 0) {
 				System.out.println("The KDF " + ChooseShips.kName + " was victorious!");

@@ -42,7 +42,7 @@ public class Ai {
 		}
 	}
 
-	public static void aiChoose(Object ff, Object kf) {
+	public static void aiChoice(Object ff, Object kf) {
 		Random x = new Random();
 		int choice = 1 + x.nextInt(4);
 		
@@ -52,24 +52,24 @@ public class Ai {
 			if (((KlingonFleet) kf).gettNum() > 0) {
 				((KlingonFleet) kf).attack2(ff, kf);
 			} else if (((KlingonFleet) kf).gettNum() == 0) {
-				aiChoose(ff, kf);
+				aiChoice(ff, kf);
 			}
 		} else if (choice == 3) {
 			if (((KlingonFleet) kf).getShieldStrength() == 0) {
 				if (((KlingonFleet) kf).getrNum() > 0) {
 					((KlingonFleet) kf).defence1(ff, kf);
 				} else
-					aiChoose(ff, kf);
+					aiChoice(ff, kf);
 			} else
-				aiChoose(ff, kf);
+				aiChoice(ff, kf);
 		} else if (choice == 4) {
 			if (((KlingonFleet) kf).getHullStrengthA() < 50) {
 				if (((KlingonFleet) kf).gethNum() > 0) {
 					((KlingonFleet) kf).defence2(ff, kf);
 				} else
-					aiChoose(ff, kf);
+					aiChoice(ff, kf);
 			} else
-				aiChoose(ff, kf);
+				aiChoice(ff, kf);
 		}
 	}
 }

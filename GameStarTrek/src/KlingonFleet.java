@@ -195,7 +195,7 @@ public enum KlingonFleet {
 		// Hull Repair Method
 		Random repair = new Random();
 		int hull = 0;
-		int h = ((FederationFleet) ff).getHullStrengthA();
+		int h = ((KlingonFleet) kf).getHullStrengthA();
 		int y;
 		int x;
 
@@ -216,45 +216,35 @@ public enum KlingonFleet {
 				((KlingonFleet) kf).sethNum(((KlingonFleet) kf).gethNum() - 1);
 
 				if (a == kf) {
+					
 					if (((KlingonFleet) kf).getHullStrengthA() >= 100) {
 						((KlingonFleet) kf).setHullStrengthA(100);
-						if ((h + hull) >= 100) {
-							y = (h + hull) - ((KlingonFleet) kf).getHullStrengthA();
-							x = y / 2;
-							((KlingonFleet) kf).setShieldStrength(((KlingonFleet) kf).getShieldStrength() + x);
-							System.out.println("Excess repairs went to Shields");
-							System.out.println("Shields repaired by: " + x + "%\n");
-							// dissipate leftover to shields
-						}
+						
 					}
 				}
 				if (b == kf) {
+					
 					if (((KlingonFleet) kf).getHullStrengthA() >= 100) {
 						((KlingonFleet) kf).setHullStrengthA(100);
-						if ((h + hull) >= 100) {
-							y = (h + hull) - ((KlingonFleet) kf).getHullStrengthA();
-							x = y / 2;
-							((KlingonFleet) kf).setShieldStrength(((KlingonFleet) kf).getShieldStrength() + x);
-							System.out.println("Excess repairs went to Shields");
-							System.out.println("Shields repaired by: " + x + "%\n");
-							// dissipate leftover to shields
-						}
+						
 					}
 				}
 				if (c == kf) {
 					if (((KlingonFleet) kf).getHullStrengthA() >= 100) {
 						((KlingonFleet) kf).setHullStrengthA(100);
-						if ((h + hull) >= 100) {
-							y = (h + hull) - ((KlingonFleet) kf).getHullStrengthA();
-							x = y / 2;
-							((KlingonFleet) kf).setShieldStrength(((KlingonFleet) kf).getShieldStrength() + x);
-							System.out.println("Excess repairs went to Shields");
-							System.out.println("Shields repaired by: " + x + "%\n");
-							// dissipate leftover to shields
-						}
+						
 					}
 				}
 				System.out.println("Hull is at " + ((KlingonFleet) kf).getHullStrengthA() + "%\n");
+				
+				if ((h + hull) >= 100) {
+					y = (h + hull) - ((KlingonFleet) kf).getHullStrengthA();
+					x = y / 2;
+					((KlingonFleet) kf).setShieldStrength(((KlingonFleet) kf).getShieldStrength() + x);
+					System.out.println("Excess repairs went to Shields");
+					System.out.println("Shields repaired by: " + x + "%\n");
+					// dissipate leftover to shields
+				}
 			}
 		} else if (((KlingonFleet) kf).gethNum() <= 0) {
 			((KlingonFleet) kf).sethNum(0);
