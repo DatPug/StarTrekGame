@@ -14,24 +14,26 @@ public class ChooseShips {
 	static boolean kling = false;
 
 	public static String enterNameF() {
-
+		// give Federation ship a name
 		System.out.println("Federation Captain, enter a name for your ship: ");
 		String name = in.nextLine();
 		return ChooseShips.fName = name;
 	}
 
 	public static String enterNameK() {
-
+		// give Klingon Ship name
 		System.out.println("Klingon Captain, enter a name for your ship: ");
 		String name = in.nextLine();
 		return ChooseShips.kName = name;
 	}
 
 	public static String aiKName() {
+		// use AI Klingon Name
 		return ChooseShips.kName = Ai.kName;
 	}
 
 	public static String aiFName() {
+		// use AI Federation Name
 		return ChooseShips.fName = Ai.fName;
 	}
 

@@ -4,8 +4,8 @@ import java.util.Random;
 
 public enum KlingonFleet {
 
-	a("The KDF " + ChooseShips.kName, 100, 100, 2, 2, 2), b("The KDF " + ChooseShips.kName, 50, 100, 3, 1,
-			1), c("The KDF " + ChooseShips.kName, 150, 100, 3, 2, 2);
+	a("The KDF " + ChooseShips.kName, 100, 100, 2, 3, 2), b("The KDF " + ChooseShips.kName, 100, 100, 3, 2,
+			1), c("The KDF " + ChooseShips.kName, 100, 100, 2, 4, 3);
 
 	private int shieldStrength; // Shields
 	private int hullStrengthA; // hull
@@ -21,7 +21,8 @@ public enum KlingonFleet {
 		this.setrNum(rNum);
 		this.sethNum(hNum);
 	}
-
+	
+	// lines 26 - 64 getters and setters for variables
 	public int getShieldStrength() {
 		return shieldStrength;
 	}
@@ -65,30 +66,21 @@ public enum KlingonFleet {
 	public void attackMenu(Object ff, Object kf) {
 		System.out.println("+++++++++++++++++++++++++++++++++++");
 		if (ChooseShips.ai == false) {
-			System.out.println("Player 2's Turn:");
-		} else {
-			System.out.println("Computer's Turn:");
+			System.out.println("Player 2's Turn:\n");
 		}
-		System.out.println("The KDF " + ChooseShips.kName + ": \n");
+		if(ChooseShips.ai == true && ChooseShips.kling == true) {
+			System.out.println("Player's Turn:\n");
+		} else if (ChooseShips.ai == true && ChooseShips.fed == true ){
+			System.out.println("Computer's Turn:\n");
+		}
+		System.out.println("The KDF " + ChooseShips.kName + ":");
 		System.out.println("Shields are at: " + ((KlingonFleet) kf).getShieldStrength() + "%");
 		System.out.println("Hull is at: " + ((KlingonFleet) kf).getHullStrengthA() + "%\n");
 		System.out.println("Captain, give an order: ");
 		System.out.println("  1. Disrupter");
 		System.out.println("  2. Torpedo | " + "you have " + ((KlingonFleet) kf).gettNum() + " left");
-		if (a == kf) {
-			if (((KlingonFleet) kf).getShieldStrength() < 100) {
-				System.out.println("  3. Repair Shields | " + "you have " + ((KlingonFleet) kf).getrNum() + " left");
-			}
-		}
-		if (b == kf) {
-			if (((KlingonFleet) kf).getShieldStrength() < 50) {
-				System.out.println("  3. Repair Shields | " + "you have " + ((KlingonFleet) kf).getrNum() + " left");
-			}
-		}
-		if (c == kf) {
-			if (((KlingonFleet) kf).getShieldStrength() < 150) {
-				System.out.println("  3. Repair Shields | " + "you have " + ((KlingonFleet) kf).getrNum() + " left");
-			}
+		if (((KlingonFleet) kf).getShieldStrength() < 100) {
+			System.out.println("  3. Repair Shields | " + "you have " + ((KlingonFleet) kf).getrNum() + " left");
 		}
 		if (((KlingonFleet) kf).getHullStrengthA() < 100) {
 			System.out.println("  4. Hull Repair | " + "you have " + ((KlingonFleet) kf).gethNum() + " left");
@@ -169,20 +161,9 @@ public enum KlingonFleet {
 			System.out.println("The KDF " + ChooseShips.kName + " repaired shields by " + shield + "%");
 			((KlingonFleet) kf).setShieldStrength(((KlingonFleet) kf).getShieldStrength() + shield);
 			((KlingonFleet) kf).setrNum(((KlingonFleet) kf).getrNum() - 1);
-			if (a == kf) {
-				if (((KlingonFleet) kf).getShieldStrength() > 100) {
-					((KlingonFleet) kf).setShieldStrength(100);
-				}
-			}
-			if (b == kf) {
-				if (((KlingonFleet) kf).getShieldStrength() > 50) {
-					((KlingonFleet) kf).setShieldStrength(50);
-				}
-			}
-			if (c == kf) {
-				if (((KlingonFleet) kf).getShieldStrength() > 150) {
-					((KlingonFleet) kf).setShieldStrength(150);
-				}
+
+			if (((KlingonFleet) kf).getShieldStrength() > 100) {
+				((KlingonFleet) kf).setShieldStrength(100);
 			}
 			System.out.println("Shields are at " + ((KlingonFleet) kf).getShieldStrength() + "%");
 		} else if (((KlingonFleet) kf).gethNum() <= 0) {
@@ -215,25 +196,9 @@ public enum KlingonFleet {
 				((KlingonFleet) kf).setHullStrengthA(((KlingonFleet) kf).getHullStrengthA() + hull);
 				((KlingonFleet) kf).sethNum(((KlingonFleet) kf).gethNum() - 1);
 
-				if (a == kf) {
+				if (((KlingonFleet) kf).getHullStrengthA() >= 100) {
+					((KlingonFleet) kf).setHullStrengthA(100);
 
-					if (((KlingonFleet) kf).getHullStrengthA() >= 100) {
-						((KlingonFleet) kf).setHullStrengthA(100);
-
-					}
-				}
-				if (b == kf) {
-
-					if (((KlingonFleet) kf).getHullStrengthA() >= 100) {
-						((KlingonFleet) kf).setHullStrengthA(100);
-
-					}
-				}
-				if (c == kf) {
-					if (((KlingonFleet) kf).getHullStrengthA() >= 100) {
-						((KlingonFleet) kf).setHullStrengthA(100);
-
-					}
 				}
 				System.out.println("Hull is at " + ((KlingonFleet) kf).getHullStrengthA() + "%\n");
 
@@ -256,7 +221,7 @@ public enum KlingonFleet {
 		char choice, ignore;
 		boolean proceed = false;
 
-		do { 
+		do {
 			proceed = false;
 
 			attackMenu(ff, kf);

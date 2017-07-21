@@ -3,13 +3,13 @@ import java.io.IOException;
 
 public class Game {
 
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static void main(String[] ships) throws IOException, InterruptedException {
 
 		ChooseShips.chooseShips(); 
 		if (ChooseShips.ai == false) {
-			TwoPlayerTurn.twoPlayerTurn();
+			TwoPlayerTurn.twoPlayerTurn(ships, ships, ships);
 		} else if (ChooseShips.ai == true) {
-			OnePlayerTurn.onePlayerTurn(args, args);
+			OnePlayerTurn.onePlayerTurn(ships, ships);
 		}
 
 	}

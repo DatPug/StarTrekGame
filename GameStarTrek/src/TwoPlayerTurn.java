@@ -3,10 +3,11 @@ import java.io.IOException;
 
 public class TwoPlayerTurn {
 
-	public static void twoPlayerTurn() throws IOException {
-
-		Object ff = ChooseShips.x; // calls x from ChooseShips and sets to ff
-		Object kf = ChooseShips.y; // calls y from ChooseShips and sets to kf
+	public static void twoPlayerTurn(Object ff, Object kf, Object rf) throws IOException {
+		
+		
+		ff = ChooseShips.x; // calls x from ChooseShips and sets to ff
+		kf = ChooseShips.y; // calls y from ChooseShips and sets to kf
 		boolean gameEnded = false;
 		int counter = (int) Math.random() * 2;
 
