@@ -4,14 +4,13 @@ import java.io.IOException;
 public class TwoPlayerTurn {
 
 	public static void twoPlayerTurn(Object ff, Object kf, Object rf) throws IOException {
-		
-		
+
 		ff = ChooseShips.x; // calls x from ChooseShips and sets to ff
 		kf = ChooseShips.y; // calls y from ChooseShips and sets to kf
 		boolean gameEnded = false;
 		int counter = (int) Math.random() * 2;
 
-		while (!gameEnded) { 
+		while (!gameEnded) {
 			if (counter % 2 == 0) {
 				((KlingonFleet) kf).choose(ff, kf);
 

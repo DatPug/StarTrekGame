@@ -18,7 +18,7 @@ public class OnePlayerTurn {
 		boolean gameEnded = false;
 
 		if (ChooseShips.fed == true) {
-			while (!gameEnded) {
+			while (!gameEnded) { // while game isnt ended
 
 				((FederationFleet) ff).choose(ff, kf);
 
