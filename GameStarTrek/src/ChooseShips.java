@@ -88,9 +88,9 @@ public class ChooseShips {
 	}
 
 	public static void players() {
-		System.out.println("One Player or Two?");
+		System.out.println("One Player or Two? (please select One)");
 		System.out.println(" 1. One");
-		System.out.println(" 2. Two");
+		//System.out.println(" 2. Two");
 	}
 
 	public static void fleets() {

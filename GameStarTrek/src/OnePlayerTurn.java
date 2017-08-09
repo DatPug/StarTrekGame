@@ -25,14 +25,14 @@ public class OnePlayerTurn {
 				
 				fed = true;
 				((FederationFleet) ff).choose(ff, kf);
-				fed = false;
+				
 
 				if (((KlingonFleet) kf).getHullStrengthA() <= 0) {
 					System.out.println("The USS " + ChooseShips.fName + " was victorious!");
 					break;
 					// if the Klingon ship goes to 0 hull, break out of loop
 				}
-				
+				fed = false;
 				kling = true;
 				((KlingonFleet) kf).attackMenu(ff, kf);
 				Ai.aiChoiceKling(ff, kf);
