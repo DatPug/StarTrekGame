@@ -14,14 +14,14 @@ public class ChooseShips {
 	static boolean kling = false;
 
 	public static String enterNameF() {
-		// give Federation ship a name
+		// gives Federation ship a name
 		System.out.println("Federation Captain, enter a name for your ship: ");
 		String name = in.nextLine();
 		return ChooseShips.fName = name;
 	}
 
 	public static String enterNameK() {
-		// give Klingon Ship name
+		// gives Klingon Ship a name
 		System.out.println("Klingon Captain, enter a name for your ship: ");
 		String name = in.nextLine();
 		return ChooseShips.kName = name;
@@ -29,15 +29,15 @@ public class ChooseShips {
 
 	public static String aiKName() {
 		// use AI Klingon Name
-		return ChooseShips.kName = Ai.kName;
+		return ChooseShips.kName = Ai.kName; // set predetermined name
 	}
 
 	public static String aiFName() {
 		// use AI Federation Name
-		return ChooseShips.fName = Ai.fName;
+		return ChooseShips.fName = Ai.fName; // set predetermined name
 	}
 
-	public static void fedShip() {
+	public static void fedShip() { // Choice Display for Federation
 		System.out.println("Federation Captain select a ship type: ");
 		System.out.println(" 1. Offensive ");
 		System.out.println("	Shields: " + FederationFleet.b.getShieldStrength());
@@ -62,7 +62,7 @@ public class ChooseShips {
 		System.out.println("	Phaser Damage: 10 - 20");
 	}
 
-	public static void klingShip() {
+	public static void klingShip() { // Choice Display for Klingons
 		System.out.println("Klingon Captain, select a ship type: ");
 		System.out.println(" 1. Offensive ");
 		System.out.println("	Shields: " + KlingonFleet.b.getShieldStrength());
@@ -118,7 +118,7 @@ public class ChooseShips {
 
 		do {
 
-			players();
+			players(); //asks how many players there are.
 
 			choice = (char) System.in.read();
 
@@ -128,10 +128,10 @@ public class ChooseShips {
 		} while (choice < '1' | choice > '2');
 
 		switch (choice) { // Player One chooses whether Federation or Klingon
-		case '1':
-			ai = true;
+		case '1': // if One player 
+			ai = true; 
 			do {
-				fleets();
+				fleets(); //asks which fleet you wish to play as
 
 				choice = (char) System.in.read();
 
@@ -141,17 +141,17 @@ public class ChooseShips {
 			} while (choice < '1' | choice > '2');
 
 			switch (choice) {
-			case '1':
+			case '1': // federation is chosen
 				fed = true;
 				if (ai == true) {
 
-					aiChoiceK();
+					aiChoiceK(); //makes the Ai choose a ship to play as
 
 				}
 				do {
 
-					enterNameF();
-					fedShip();
+					enterNameF(); //input for a name
+					fedShip(); // choice of ship
 
 					choice = (char) System.in.read();
 
@@ -161,13 +161,13 @@ public class ChooseShips {
 				} while (choice < '1' | choice > '3');
 
 				switch (choice) {
-				case '1':
+				case '1': // select Offensive
 					x = FederationFleet.b;
 					break;
-				case '2':
+				case '2': // Select Well-Rounded
 					x = FederationFleet.a;
 					break;
-				case '3':
+				case '3': // Select Defensive
 					x = FederationFleet.c;
 					break;
 				}
@@ -178,7 +178,7 @@ public class ChooseShips {
 				break;
 				
 
-			case '2':
+			case '2': // choose klingon
 				kling = true;
 				if (ai == true) {
 

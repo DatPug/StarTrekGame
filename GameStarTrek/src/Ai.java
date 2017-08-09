@@ -77,11 +77,11 @@ public class Ai {
 
 		switch (choice) {
 		case 1:
-			((KlingonFleet) kf).attack1(ff, kf);
+			Commands.attack1(ff, kf);
 			break;
 		case 2:
 			if (((KlingonFleet) kf).gettNum() > 0) {
-				((KlingonFleet) kf).attack2(ff, kf);
+				Commands.attack2(ff, kf);
 			} else if (((KlingonFleet) kf).gettNum() == 0) {
 				aiChoiceKling(ff, kf);
 			}
@@ -89,7 +89,7 @@ public class Ai {
 		case 3:
 			if (((KlingonFleet) kf).getShieldStrength() == 0) {
 				if (((KlingonFleet) kf).getrNum() > 0) {
-					((KlingonFleet) kf).defence1(ff, kf);
+					Commands.defence1(ff, kf);
 				} else
 					aiChoiceKling(ff, kf);
 			} else if (((KlingonFleet) kf).getShieldStrength() > 0) {
@@ -99,7 +99,7 @@ public class Ai {
 		case 4:
 			if (((KlingonFleet) kf).getHullStrengthA() < 50) {
 				if (((KlingonFleet) kf).gethNum() > 0) {
-					((KlingonFleet) kf).defence2(ff, kf);
+					Commands.defence2(ff, kf);
 				} else
 					aiChoiceKling(ff, kf);
 			} else if (((KlingonFleet) kf).getHullStrengthA() > 50) {
@@ -107,31 +107,6 @@ public class Ai {
 			}
 			break;
 		}
-		// if (choice == 1) {
-		// ((KlingonFleet) kf).attack1(ff, kf);
-		// } else if (choice == 2) {
-		// if (((KlingonFleet) kf).gettNum() > 0) {
-		// ((KlingonFleet) kf).attack2(ff, kf);
-		// } else if (((KlingonFleet) kf).gettNum() == 0) {
-		// aiChoiceKling(ff, kf);
-		// }
-		// } else if (choice == 3) {
-		// if (((KlingonFleet) kf).getShieldStrength() == 0) {
-		// if (((KlingonFleet) kf).getrNum() > 0) {
-		// ((KlingonFleet) kf).defence1(ff, kf);
-		// } else
-		// aiChoiceKling(ff, kf);
-		// } else
-		// aiChoiceKling(ff, kf);
-		// } else if (choice == 4) {
-		// if (((KlingonFleet) kf).getHullStrengthA() < 50) {
-		// if (((KlingonFleet) kf).gethNum() > 0) {
-		// ((KlingonFleet) kf).defence2(ff, kf);
-		// } else
-		// aiChoiceKling(ff, kf);
-		// } else
-		// aiChoiceKling(ff, kf);
-		// }
 	}
 
 	public static void aiChoiceFed(Object ff, Object kf) {
@@ -140,11 +115,11 @@ public class Ai {
 
 		switch (choice) {
 		case 1:
-			((FederationFleet) ff).attack1(ff, kf);
+			Commands.attack1(ff, kf);
 			break;
 		case 2:
 			if (((FederationFleet) ff).gettNum() > 0) {
-				((FederationFleet) ff).attack2(ff, kf);
+				Commands.attack2(ff, kf);
 			} else if (((FederationFleet) ff).gettNum() == 0) {
 				aiChoiceFed(ff, kf);
 			}
@@ -152,7 +127,7 @@ public class Ai {
 		case 3:
 			if (((FederationFleet) ff).getShieldStrength() == 0) {
 				if (((FederationFleet) ff).getrNum() > 0) {
-					((FederationFleet) ff).defence1(ff, kf);
+					Commands.defence1(ff, kf);
 				} else
 					aiChoiceFed(ff, kf);
 			} else if (((FederationFleet) ff).getShieldStrength() > 0) {
@@ -162,7 +137,7 @@ public class Ai {
 		case 4:
 			if (((FederationFleet) ff).getHullStrengthA() < 50) {
 				if (((FederationFleet) ff).gethNum() > 0) {
-					((FederationFleet) ff).defence2(ff, kf);
+					Commands.defence2(ff, kf);
 				} else
 					aiChoiceFed(ff, kf);
 			} else if (((FederationFleet) ff).getHullStrengthA() > 50) {
