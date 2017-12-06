@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Random;
 
 public enum FederationFleet implements Commands {
 
@@ -122,6 +123,5 @@ public enum FederationFleet implements Commands {
 			Commands.defence2(ff, kf);
 			break;
 		}
-
 	}
 }

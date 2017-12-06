@@ -10,12 +10,12 @@ public class OnePlayerTurn {
 
 		if (ChooseShips.fed == true) {
 			ff = ChooseShips.x; // calls x from ChooseShips and sets to ff
-			kf = Ai.kling; // calls y from ChooseShips and sets to kf
+			kf = ChooseShips.y; // calls y from ChooseShips and sets to kf
 		}
 
 		if (ChooseShips.kling == true) {
-			ff = Ai.fed;
-			kf = ChooseShips.y;
+			ff = ChooseShips.y;
+			kf = ChooseShips.x;
 		}
 
 		boolean gameEnded = false;
@@ -49,7 +49,8 @@ public class OnePlayerTurn {
 
 		if (ChooseShips.kling == true) {
 			while (!gameEnded) {
-
+				
+				kling = true;
 				((KlingonFleet) kf).choose(ff, kf);
 
 				if (((FederationFleet) ff).getHullStrengthA() <= 0) {
@@ -57,12 +58,14 @@ public class OnePlayerTurn {
 					break;
 					// if the Klingon ship goes to 0 hull, break out of loop
 				}
-
+				kling = false;
+				fed = true;
 				((FederationFleet) ff).attackMenu(ff, kf);
 				Ai.aiChoiceFed(ff, kf);
+				fed = false;
 
 				if (((KlingonFleet) kf).getHullStrengthA() <= 0) {
-					System.out.println("The KDF " + ChooseShips.kName + " was victorious!");
+					System.out.println("The USS " + ChooseShips.fName + " was victorious!");
 					break;
 				}
 			}

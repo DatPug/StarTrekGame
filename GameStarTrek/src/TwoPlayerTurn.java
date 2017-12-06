@@ -12,6 +12,7 @@ public class TwoPlayerTurn {
 
 		while (!gameEnded) {
 			if (counter % 2 == 0) {
+				OnePlayerTurn.kling = true;
 				((KlingonFleet) kf).choose(ff, kf);
 
 				if (((FederationFleet) ff).getHullStrengthA() <= 0) {
@@ -20,8 +21,11 @@ public class TwoPlayerTurn {
 					// if federation ship goes to 0 hull, break out of loop
 				}
 
+				OnePlayerTurn.kling = false;
+				OnePlayerTurn.fed = true;
 				((FederationFleet) ff).choose(ff, kf);
-
+				OnePlayerTurn.fed = false;
+				
 				if (((KlingonFleet) kf).getHullStrengthA() <= 0) {
 					System.out.println("The USS " + ChooseShips.fName + " was victorious!");
 					break;
@@ -30,6 +34,7 @@ public class TwoPlayerTurn {
 			}
 
 			else {
+				OnePlayerTurn.fed = true;
 				((FederationFleet) ff).choose(ff, kf);
 
 				if (((KlingonFleet) kf).getHullStrengthA() <= 0) {
@@ -37,7 +42,10 @@ public class TwoPlayerTurn {
 					break;
 					// if Klingon ship goes to 0 hull, break out of loop
 				}
+				OnePlayerTurn.fed = false;
+				OnePlayerTurn.kling = true;
 				((KlingonFleet) kf).choose(ff, kf);
+				OnePlayerTurn.kling = false;
 
 				if (((FederationFleet) ff).getHullStrengthA() <= 0) {
 					System.out.println("The KDF " + ChooseShips.kName + " was victorious!");

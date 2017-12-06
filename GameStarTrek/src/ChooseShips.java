@@ -16,14 +16,14 @@ public class ChooseShips {
 	public static String enterNameF() {
 		// gives Federation ship a name
 		System.out.println("Federation Captain, enter a name for your ship: ");
-		String name = in.nextLine();
+		String name = in.nextLine().trim();
 		return ChooseShips.fName = name;
 	}
 
 	public static String enterNameK() {
 		// gives Klingon Ship a name
 		System.out.println("Klingon Captain, enter a name for your ship: ");
-		String name = in.nextLine();
+		String name = in.nextLine().trim();
 		return ChooseShips.kName = name;
 	}
 
@@ -88,9 +88,9 @@ public class ChooseShips {
 	}
 
 	public static void players() {
-		System.out.println("One Player or Two? (please select One)");
+		System.out.println("One Player or Two?");
 		System.out.println(" 1. One");
-		//System.out.println(" 2. Two");
+		System.out.println(" 2. Two");
 	}
 
 	public static void fleets() {
@@ -199,13 +199,13 @@ public class ChooseShips {
 
 				switch (choice) {
 				case '1':
-					y = KlingonFleet.b;
+					x = KlingonFleet.b;
 					break;
 				case '2':
-					y = KlingonFleet.a;
+					x = KlingonFleet.a;
 					break;
 				case '3':
-					y = KlingonFleet.c;
+					x = KlingonFleet.c;
 					break;
 				}
 

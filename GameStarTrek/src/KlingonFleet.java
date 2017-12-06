@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Random;
 
 public enum KlingonFleet implements Commands {
 
@@ -123,4 +124,4 @@ public enum KlingonFleet implements Commands {
 			break;
 		}
 	}
-}
+	}
