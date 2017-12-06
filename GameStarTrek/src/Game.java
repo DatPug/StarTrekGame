@@ -1,5 +1,6 @@
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Game {
 
@@ -11,6 +12,8 @@ public class Game {
 		} else if (ChooseShips.ai == true) {
 			OnePlayerTurn.onePlayerTurn(ships, ships);
 		}
-
+		 System.out.println("\nPress enter to close");
+		 Scanner pause = new Scanner(System.in); 
+		 pause.nextLine();
 	}
 }
