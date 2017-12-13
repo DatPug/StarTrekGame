@@ -4,14 +4,18 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class ChooseShips {
+	
 	static Object x;
 	static Object y;
-	private Scanner in = new Scanner(System.in);
+	
 	private static String fName;
 	private static String kName;
+	
 	private boolean ai = false;
 	static boolean fed = false;
 	static boolean kling = false;
+	
+	private Scanner in = new Scanner(System.in);
 	
 	public static String getfName() {
 		return fName;
@@ -45,18 +49,22 @@ public class ChooseShips {
 
 	public String aiKName() {
 		// use AI Klingon Name
-		return kName = Ai.kName; // set predetermined name
+		
+		return kName = classAi.kName; // set predetermined name
 	}
 
 	public String aiFName() {
 		// use AI Federation Name
-		return fName = Ai.fName; // set predetermined name
+
+		return fName = classAi.fName; // set predetermined name
 	}
 	
 	public boolean isAi() {
 		return ai;
 	}
+	
 	Ai classAi = new Ai();
+	
 	public void fedShip() { // Choice Display for Federation
 		System.out.println("Federation Captain select a ship type: ");
 		System.out.println(" 1. Offensive ");

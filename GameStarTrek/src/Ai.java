@@ -3,10 +3,10 @@ import java.util.Random;
 
 public class Ai {
 
-	static Object kling;
-	static Object fed;
-	static String kName;
-	static String fName;
+	Object kling;
+	Object fed;
+	String kName;
+	String fName;
 
 	public  void aiChooseFed() {
 
@@ -60,7 +60,7 @@ public class Ai {
 			kling = KlingonFleet.a;
 			kName = "Ye'nak";
 			System.out.println();
-			System.out.println("Computer chose: The KDF " + Ai.kName);
+			System.out.println("Computer chose: The KDF " + kName);
 			System.out.println("Ship type: Well-Rounded \n");
 			ChooseShips.y = kling;
 			break;
@@ -69,7 +69,7 @@ public class Ai {
 			kling = KlingonFleet.c;
 			kName = "Qolen";
 			System.out.println();
-			System.out.println("Computer chose: The KDF " + Ai.kName);
+			System.out.println("Computer chose: The KDF " + kName);
 			System.out.println("Ship type: Defensive \n");
 			ChooseShips.y = kling;
 			break;
