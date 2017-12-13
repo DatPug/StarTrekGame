@@ -3,12 +3,12 @@ import java.util.Random;
 
 public class Ai {
 
-	public static Object kling;
-	public static Object fed;
-	public static String kName;
-	public static String fName;
+	static Object kling;
+	static Object fed;
+	static String kName;
+	static String fName;
 
-	public static void aiChooseFed() {
+	public  void aiChooseFed() {
 
 		Random x = new Random();
 		int choice = 1 + x.nextInt(3);
@@ -41,7 +41,7 @@ public class Ai {
 		}
 	}
 
-	public static void aiChooseKling() {
+	public void aiChooseKling() {
 
 		Random x = new Random();
 		int choice = 1 + x.nextInt(3);
@@ -77,7 +77,8 @@ public class Ai {
 		}
 	}
 
-	public static void aiChoiceKling(Object ff, Object kf) {
+	public void aiChoiceKling(Object ff, Object kf) {
+		ChooseShips choose = new ChooseShips();
 		Random x = new Random();
 		int choice = 1 + x.nextInt(4);
 
@@ -104,23 +105,24 @@ public class Ai {
 			break;
 		case 4:
 
-			if (ChooseShips.ai == true && ((KlingonFleet) kf).gethNum() < 0
-					&& ((KlingonFleet) kf).getHullStrengthA() <= 20) {
+			if (choose.isAi() == true && ((KlingonFleet) kf).gethNum() < 0
+					&& ((KlingonFleet) kf).gethullStrength() <= 20) {
 
 				Commands.defence2(ff, kf);
-			} else if (((KlingonFleet) kf).getHullStrengthA() < 75) {
+			} else if (((KlingonFleet) kf).gethullStrength() < 75) {
 				if (((KlingonFleet) kf).gethNum() > 0) {
 					Commands.defence2(ff, kf);
 				} else
 					aiChoiceKling(ff, kf);
-			} else if (((KlingonFleet) kf).getHullStrengthA() > 75) {
+			} else if (((KlingonFleet) kf).gethullStrength() > 75) {
 				aiChoiceKling(ff, kf);
 			}
 			break;
 		}
 	}
 
-	public static void aiChoiceFed(Object ff, Object kf) {
+	public void aiChoiceFed(Object ff, Object kf) {
+		ChooseShips choose = new ChooseShips();
 		Random x = new Random();
 		int choice = 1 + x.nextInt(4);
 
@@ -146,17 +148,17 @@ public class Ai {
 			}
 			break;
 		case 4:
-			if (ChooseShips.ai == true && ((FederationFleet) ff).gethNum() < 0
-			&& ((FederationFleet) ff).getHullStrengthA() <= 20) {
+			if (choose.isAi() == true && ((FederationFleet) ff).gethNum() < 0
+			&& ((FederationFleet) ff).gethullStrength() <= 20) {
 
 				Commands.defence2(ff, kf);
 			}
-			if (((FederationFleet) ff).getHullStrengthA() < 50) {
+			if (((FederationFleet) ff).gethullStrength() < 50) {
 				if (((FederationFleet) ff).gethNum() > 0) {
 					Commands.defence2(ff, kf);
 				} else
 					aiChoiceFed(ff, kf);
-			} else if (((FederationFleet) ff).getHullStrengthA() > 50) {
+			} else if (((FederationFleet) ff).gethullStrength() > 50) {
 				aiChoiceFed(ff, kf);
 			}
 			break;

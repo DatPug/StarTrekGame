@@ -4,116 +4,136 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class ChooseShips {
-	public static Object x;
-	public static Object y;
-	static Scanner in = new Scanner(System.in);
-	static String fName;
-	static String kName;
-	static boolean ai = false;
+	static Object x;
+	static Object y;
+	private Scanner in = new Scanner(System.in);
+	private static String fName;
+	private static String kName;
+	private boolean ai = false;
 	static boolean fed = false;
 	static boolean kling = false;
+	
+	public static String getfName() {
+		return fName;
+	}
 
-	public static String enterNameF() {
+	public void setfName(String fName) {
+		ChooseShips.fName = fName;
+	}
+
+	public static String getkName() {
+		return kName;
+	}
+
+	public void setkName(String kName) {
+		ChooseShips.kName = kName;
+	}
+
+	public String enterNameF() {
 		// gives Federation ship a name
 		System.out.println("Federation Captain, enter a name for your ship: ");
 		String name = in.nextLine().trim();
-		return ChooseShips.fName = name;
+		return fName = name;
 	}
 
-	public static String enterNameK() {
+	public String enterNameK() {
 		// gives Klingon Ship a name
 		System.out.println("Klingon Captain, enter a name for your ship: ");
 		String name = in.nextLine().trim();
-		return ChooseShips.kName = name;
+		return kName = name;
 	}
 
-	public static String aiKName() {
+	public String aiKName() {
 		// use AI Klingon Name
-		return ChooseShips.kName = Ai.kName; // set predetermined name
+		return kName = Ai.kName; // set predetermined name
 	}
 
-	public static String aiFName() {
+	public String aiFName() {
 		// use AI Federation Name
-		return ChooseShips.fName = Ai.fName; // set predetermined name
+		return fName = Ai.fName; // set predetermined name
 	}
-
-	public static void fedShip() { // Choice Display for Federation
+	
+	public boolean isAi() {
+		return ai;
+	}
+	Ai classAi = new Ai();
+	public void fedShip() { // Choice Display for Federation
 		System.out.println("Federation Captain select a ship type: ");
 		System.out.println(" 1. Offensive ");
 		System.out.println("	Shields: " + FederationFleet.b.getShieldStrength());
-		System.out.println("	Hull: " + FederationFleet.b.getHullStrengthA());
+		System.out.println("	Hull: " + FederationFleet.b.gethullStrength());
 		System.out.println("	Torpedoes: " + FederationFleet.b.gettNum() + " | Damage: 40 - 50");
 		System.out.println("	Shield Repairs: " + FederationFleet.b.getrNum() + " | Repairs: 20 - 30");
 		System.out.println("	Hull Repairs: " + FederationFleet.b.gethNum() + " | Repairs: 30 - 35");
 		System.out.println("	Phaser Damage: 20 - 30");
 		System.out.println(" 2. Well-Rounded ");
 		System.out.println("	Shields: " + FederationFleet.a.getShieldStrength());
-		System.out.println("	Hull: " + FederationFleet.a.getHullStrengthA());
+		System.out.println("	Hull: " + FederationFleet.a.gethullStrength());
 		System.out.println("	Torpedoes: " + FederationFleet.a.gettNum() + " | Damage: 30 - 40");
 		System.out.println("	Shield Repairs: " + FederationFleet.a.getrNum() + " | Repairs: 20 - 30");
 		System.out.println("	Hull Repairs: " + FederationFleet.a.gethNum() + " | Repairs: 30 - 40");
 		System.out.println("	Phaser Damage: 10 - 25");
 		System.out.println(" 3. Defensive ");
 		System.out.println("	Shields: " + FederationFleet.c.getShieldStrength());
-		System.out.println("	Hull: " + FederationFleet.c.getHullStrengthA());
+		System.out.println("	Hull: " + FederationFleet.c.gethullStrength());
 		System.out.println("	Torpedoes: " + FederationFleet.c.gettNum() + " | Damage: 20 - 40");
 		System.out.println("	Shield Repairs: " + FederationFleet.c.getrNum() + " | Repairs: 20 - 30");
 		System.out.println("	Hull Repairs: " + FederationFleet.c.gethNum() + " | Repairs: 35 - 50");
 		System.out.println("	Phaser Damage: 10 - 20");
 	}
 
-	public static void klingShip() { // Choice Display for Klingons
+	public void klingShip() { // Choice Display for Klingons
 		System.out.println("Klingon Captain, select a ship type: ");
 		System.out.println(" 1. Offensive ");
 		System.out.println("	Shields: " + KlingonFleet.b.getShieldStrength());
-		System.out.println("	Hull: " + KlingonFleet.b.getHullStrengthA());
+		System.out.println("	Hull: " + KlingonFleet.b.gethullStrength());
 		System.out.println("	Torpedoes: " + KlingonFleet.b.gettNum() + " | Damage: 40 - 50");
 		System.out.println("	Shield Repairs: " + KlingonFleet.b.getrNum() + " | Repairs: 20 - 30");
 		System.out.println("	Hull Repairs: " + KlingonFleet.b.gethNum() + " | Repairs: 30 - 35");
 		System.out.println("	Disruptor Damage: 20 - 30");
 		System.out.println(" 2. Well-Rounded ");
 		System.out.println("	Shields: " + KlingonFleet.a.getShieldStrength());
-		System.out.println("	Hull: " + KlingonFleet.a.getHullStrengthA());
+		System.out.println("	Hull: " + KlingonFleet.a.gethullStrength());
 		System.out.println("	Torpedoes: " + KlingonFleet.a.gettNum() + " | Damage: 30 - 40");
 		System.out.println("	Shield Repairs: " + KlingonFleet.a.getrNum() + " | Repairs: 20 - 30");
 		System.out.println("	Hull Repairs: " + KlingonFleet.a.gethNum() + " | Repairs: 30 - 40");
 		System.out.println("	Disruptor Damage: 15 - 25");
 		System.out.println(" 3. Defensive ");
 		System.out.println("	Shields: " + KlingonFleet.c.getShieldStrength());
-		System.out.println("	Hull: " + KlingonFleet.c.getHullStrengthA());
+		System.out.println("	Hull: " + KlingonFleet.c.gethullStrength());
 		System.out.println("	Torpedoes: " + KlingonFleet.c.gettNum() + " | Damage: 20 - 40");
 		System.out.println("	Shield Repairs: " + KlingonFleet.c.getrNum() + " | Repairs: 20 - 30");
 		System.out.println("	Hull Repairs: " + KlingonFleet.c.gethNum() + " | Repairs: 35 - 50");
 		System.out.println("	Disruptor Damage: 10 - 20");
 	}
 
-	public static void players() {
+	public void players() {
 		System.out.println("One Player or Two?");
 		System.out.println(" 1. One");
 		System.out.println(" 2. Two");
 	}
 
-	public static void fleets() {
+	public void fleets() {
 		System.out.println("Federation or Klingon?");
 		System.out.println(" 1. Federation");
 		System.out.println(" 2. Klingon");
 	}
 
-	public static void aiChoiceK() throws InterruptedException {
+	public void aiChoiceK() throws InterruptedException {
 		System.out.println("Computer is choosing a Ship...");
 		TimeUnit.SECONDS.sleep(2);
-		Ai.aiChooseKling();
+		classAi.aiChooseKling();
 		aiKName();
 	}
 
-	public static void aiChoiceF() throws InterruptedException {
+	public void aiChoiceF() throws InterruptedException {
 		System.out.println("Computer is choosing a Ship...");
 		TimeUnit.SECONDS.sleep(2);
-		Ai.aiChooseFed();
+		classAi.aiChooseFed();
 		aiFName();
 	}
 
-	public static void chooseShips() throws IOException, InterruptedException {
+	public void chooseShips() throws IOException, InterruptedException {
 		char choice, ignore;
 
 		do {
@@ -275,4 +295,5 @@ public class ChooseShips {
 		// stores selection in y
 
 	}
+
 }
