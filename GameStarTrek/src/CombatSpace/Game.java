@@ -5,29 +5,27 @@ import java.util.Scanner;
 
 public class Game {
 
-	public static void main(String[] ships) throws IOException, InterruptedException {
+  public static void main(String[] args) throws IOException, InterruptedException {
 
-		OnePlayerTurn opt = new OnePlayerTurn();
-		TwoPlayerTurn tpt = new TwoPlayerTurn();
-		ChooseShips choose = new ChooseShips();
-		Game game = new Game();
+    OnePlayerTurn opt = new OnePlayerTurn();
+    ChooseShips choose = new ChooseShips();
+    Game game = new Game();
 
-		choose.chooseShips();
+    choose.chooseShips();
+    Object Ship1 = ChooseShips.x;
+    Object Ship2 = ChooseShips.y;
 
-		if (choose.isAi() == false) { // do if no Ai selected.
-			tpt.twoPlayerTurn(ships, ships);
-		} else if (choose.isAi() == true) { // do if Ai selected.
-			opt.onePlayerTurn(ships, ships);
-		}
+    opt.onePlayerTurn(Ship1, Ship2);
 
-		game.pause();
-	}
+    game.pause();
 
-	private void pause() {
-		System.out.println("\nPress enter to close");
-		@SuppressWarnings("resource")
-		Scanner pause = new Scanner(System.in);
-		pause.nextLine();
-		
- 	} 
+  }
+
+  private void pause() {
+    System.out.println("\nPress enter to close");
+    @SuppressWarnings("resource")
+    Scanner pause = new Scanner(System.in);
+    pause.nextLine();
+
+  }
 }
